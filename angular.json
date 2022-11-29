@@ -1,0 +1,137 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "csii-helper": {
+      "projectType": "library",
+      "root": "projects/csii-helper",
+      "sourceRoot": "projects/csii-helper/src",
+      "prefix": "csii",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/csii-helper/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/csii-helper/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/csii-helper/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/csii-helper/src/test.ts",
+            "tsConfig": "projects/csii-helper/tsconfig.spec.json",
+            "karmaConfig": "projects/csii-helper/karma.conf.js"
+          }
+        }
+      }
+    },
+    "helper-test": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/helper-test",
+      "sourceRoot": "projects/helper-test/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/helper-test",
+            "index": "projects/helper-test/src/index.html",
+            "main": "projects/helper-test/src/main.ts",
+            "polyfills": "projects/helper-test/src/polyfills.ts",
+            "tsConfig": "projects/helper-test/tsconfig.app.json",
+            "assets": [
+              "projects/helper-test/src/favicon.ico",
+              "projects/helper-test/src/assets"
+            ],
+            "styles": [
+              "projects/helper-test/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/helper-test/src/environments/environment.ts",
+                  "with": "projects/helper-test/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "helper-test:build:production"
+            },
+            "development": {
+              "browserTarget": "helper-test:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "helper-test:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/helper-test/src/test.ts",
+            "polyfills": "projects/helper-test/src/polyfills.ts",
+            "tsConfig": "projects/helper-test/tsconfig.spec.json",
+            "karmaConfig": "projects/helper-test/karma.conf.js",
+            "assets": [
+              "projects/helper-test/src/favicon.ico",
+              "projects/helper-test/src/assets"
+            ],
+            "styles": [
+              "projects/helper-test/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "csii-helper"
+}
