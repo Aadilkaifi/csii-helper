@@ -1,24 +1,53 @@
-# CsiiHelper
+# Csii-Helper
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+This library services will help you to deal with the regular use functions.
 
-## Code scaffolding
+## Instalation
 
-Run `ng generate component component-name --project csii-helper` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project csii-helper`.
-> Note: Don't forget to add `--project csii-helper` or else it will be added to the default project in your `angular.json` file. 
+```npm i csii-helper```
 
-## Build
+## Usage
+Inject the needed service in the constructor and call for the required function.
+```
+import { CsiiHelperService } from 'csii-helper';
 
-Run `ng build csii-helper` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+```
+constructor(private helper: CsiiHelperService){
+  }
+```
+after injection call the function
 
-## Publishing
+```
+ ngOnInit(): void {
+	const description = this.helper.changeToTitleCase('i love angular');
+	console.log(description);
+	
+	// it will return =>  'I Love Angular';
+  }
+```
 
-After building your library with `ng build csii-helper`, go to the dist folder `cd dist/csii-helper` and run `npm publish`.
 
-## Running unit tests
+## Functions
 
-Run `ng test csii-helper` to execute the unit tests via [Karma](https://karma-runner.github.io).
+|   function        						| number of arguments |    argument   				|     returns   																				|   service    						|
+| -------------                 | ------------- 			| ------------- 				|------------- 																					| ------------- 					|
+| numberOfdaysFromCurrentDate   | 1  									| date						  		| number (eg: 4)  																			|  CsiiDateHelperService  |
+| calculateDaysBetweenDates     | 2  									| Date1 , Date 2  			| number (eg: 7)  																			|  CsiiDateHelperService  |
+| dateDifferenceString     			| 2 								  | startDate , endDate 	| number (eg: 3 Years 4 months 7 days)  								|  CsiiDateHelperService  |
+| isPastDate					     			| 1									  | date								 	| boolean (eg: true)  																	|  CsiiDateHelperService  |
+| isFutureDate					   			| 1									  | date								 	| boolean (eg: false)  																	|  CsiiDateHelperService  |
+| isEmpty								   			| 1									  | any									 	| boolean (eg: true if empty)  													|  CsiiHelperService		  |
+| validateEmail					   			| 1									  | string							 	| boolean (eg: true if email is valid)									|  CsiiHelperService		  |
+| disableSpaceBar				   			| 1									  | KeyboardEvent				 	| boolean (eg: true)          													|  CsiiHelperService		  |
+| isValidNumber					   			| 1									  | any									 	| boolean (eg: true)          													|  CsiiHelperService		  |
+| validate10DigitNumberRegex		| 1									  | any									 	| boolean (eg: true)          													|  CsiiHelperService		  |
+| calculatePercentage						| 3									  | number, total, toFixedValue(optional)	| boolean (eg: true)          					|  CsiiHelperService		  |
+| formatBytes										| 1									  | number (bytes)			 	| string (eg: 21.5kb or 1.2Mb)    											|  CsiiHelperService		  |
+| changeToSentenceCase					| 1									  | string, 							| string (eg: Hello world. Its ok.)   	       					|  CsiiHelperService		  |
+| changeToTitleCase							| 1									  | string								| string (Convert First Letter Capital)									|  CsiiHelperService		  |
+| changeToLowerCase							| 1									  | string								| string (convert to small letter)											|  CsiiHelperService		  |
+| validateNumberLength					| 2									  | number, limit					| boolean (return true if limit matches number length)	|  CsiiHelperService		  |
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
