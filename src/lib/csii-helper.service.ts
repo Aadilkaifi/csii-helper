@@ -89,4 +89,9 @@ validateNumberLength(number: any, length: number) {
   }
 }
 
+countWordsInString(string: string) {
+  const wordCount = string ? string.split(/\s+/) : 0;
+  return wordCount ? wordCount.length : 0;
+}
+
 }

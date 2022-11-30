@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CsiiDateHelperService {
 
-
   constructor(){}
 
-  numberOfdaysFromCurrentDate(dateSent: Date) {
+  numberOfdaysFromCurrentDate(dateSent: Date): number {
     const currentDate = new Date();
     dateSent = new Date(dateSent);
     return Math.floor((Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate())
