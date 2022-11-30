@@ -63,6 +63,7 @@ after injection call the function
 | changeToTitleCase							| 1									  | string								| string (Convert First Letter Capital)									|  CsiiHelperService		  |
 | changeToLowerCase							| 1									  | string								| string (convert to small letter)											|  CsiiHelperService		  |
 | validateNumberLength					| 2									  | number, limit					| boolean (return true if limit matches number length)	|  CsiiHelperService		  |
+| countWordsInString					| 1									  | string					| number (e.g 35)	|  CsiiHelperService		  |
 
 
 
