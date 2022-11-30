@@ -7,6 +7,21 @@ This library services will help you to deal with the regular use functions.
 ```npm i csii-helper```
 
 ## Usage
+Fist import it in the relevent Module
+```
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    CsiiHelperModule
+  ],
+
+```
+
+
 Inject the needed service in the constructor and call for the required function.
 ```
 import { CsiiHelperService } from 'csii-helper';
