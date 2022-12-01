@@ -64,6 +64,13 @@ after injection call the function
 | changeToLowerCase							| 1									  | string								| string (convert to small letter)											|  CsiiHelperService		  |
 | validateNumberLength					| 2									  | number, limit					| boolean (return true if limit matches number length)	|  CsiiHelperService		  |
 | countWordsInString					| 1									  | string					| number (e.g 35)	|  CsiiHelperService		  |
+| removeDuplicateArray					|2									  | array, key(that has duplicates)					| it will return array with unique values	|  CsiiHelperService		  |
 
+
+
+| angular version  | package version |
+| ------------- | ------------- |
+| angular 14  | 0.0.5  |
+| angular 13  | 0.0.3  |
 
 
