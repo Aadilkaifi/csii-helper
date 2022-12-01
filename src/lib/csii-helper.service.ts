@@ -94,4 +94,19 @@ countWordsInString(string: string) {
   return wordCount ? wordCount.length : 0;
 }
 
+
+removeDuplicates(originalArray: any[], key: string) {
+  var newArray = [];
+  var lookupObject: any  = {};
+
+  for(var i in originalArray) {
+     lookupObject[originalArray[i][key]] = originalArray[i];
+  }
+
+  for(i in lookupObject) {
+      newArray.push(lookupObject[i]);
+  }
+   return newArray;
+}
+
 }
